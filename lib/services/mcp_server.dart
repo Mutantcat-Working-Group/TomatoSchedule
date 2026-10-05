@@ -4,7 +4,6 @@ import 'dart:io';
 import 'package:shelf/shelf.dart';
 import 'package:shelf/shelf_io.dart' as io;
 import 'package:shelf_router/shelf_router.dart';
-import 'package:web_socket_channel/web_socket_channel.dart';
 import '../models/event.dart';
 import 'database_service.dart';
 
