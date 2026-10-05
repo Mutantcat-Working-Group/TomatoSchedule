@@ -1,0 +1,28 @@
+name: tomato_schedule
+description: AI-powered cross-platform schedule planner
+publish_to: 'none'
+version: 0.1.0+1
+
+environment:
+  sdk: ^3.5.0
+  flutter: ^3.24.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  flutter_riverpod: ^2.5.1
+  table_calendar: ^3.1.2
+  sqflite: ^2.3.3
+  path: ^1.9.0
+  http: ^1.2.1
+  intl: ^0.19.0
+  uuid: ^4.4.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
