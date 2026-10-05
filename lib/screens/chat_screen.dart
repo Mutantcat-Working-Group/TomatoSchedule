@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../services/ai_service.dart';
 import '../providers/calendar_provider.dart';
 
 class ChatScreen extends ConsumerStatefulWidget {
