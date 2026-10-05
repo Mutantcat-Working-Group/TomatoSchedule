@@ -7,8 +7,65 @@ AI-powered cross-platform schedule planner built with Flutter.
 - Calendar view (month/week/day)
 - Natural language event creation
 - AI-powered schedule generation
+- MCP (Model Context Protocol) server for direct AI integration
 - Local SQLite storage
 - Cross-platform: Android, iOS, Windows, macOS, Linux
+
+## MCP Server
+
+TomatoSchedule includes a built-in MCP server that allows AI assistants to directly manage your calendar.
+
+### Quick Start
+
+1. Open the app and go to Settings (gear icon)
+2. Start the MCP Server
+3. Configure your AI assistant to connect to `http://<device-ip>:8080/mcp`
+
+### Available Tools
+
+| Tool | Description |
+|------|-------------|
+| `create_event` | Create a new calendar event |
+| `update_event` | Update an existing event |
+| `delete_event` | Delete an event |
+| `query_events` | Query events in a date range |
+| `get_event` | Get a single event by ID |
+
+### Example: Claude Desktop Configuration
+
+Add to your Claude Desktop config:
+
+```json
+{
+  "mcpServers": {
+    "tomato-schedule": {
+      "url": "http://localhost:8080/mcp"
+    }
+  }
+}
+```
+
+### Tool Parameters
+
+#### create_event
+```json
+{
+  "title": "Team Meeting",
+  "description": "Weekly sync",
+  "startTime": "2026-10-05T10:00:00Z",
+  "endTime": "2026-10-05T11:00:00Z",
+  "location": "Conference Room A",
+  "priority": "high"
+}
+```
+
+#### query_events
+```json
+{
+  "startTime": "2026-10-01T00:00:00Z",
+  "endTime": "2026-10-31T23:59:59Z"
+}
+```
 
 ## Getting Started
 

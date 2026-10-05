@@ -5,6 +5,7 @@ import 'package:intl/intl.dart';
 import '../providers/calendar_provider.dart';
 import '../models/event.dart';
 import 'chat_screen.dart';
+import 'mcp_settings_screen.dart';
 
 class CalendarScreen extends ConsumerStatefulWidget {
   const CalendarScreen({super.key});
@@ -32,6 +33,15 @@ class _CalendarScreenState extends ConsumerState<CalendarScreen> {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (_) => const ChatScreen()),
+              );
+            },
+          ),
+          IconButton(
+            icon: const Icon(Icons.settings_outlined),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => const McpSettingsScreen()),
               );
             },
           ),

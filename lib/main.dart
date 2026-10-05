@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'screens/calendar_screen.dart';
+import 'services/mcp_server.dart';
+import 'services/database_service.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(
     const ProviderScope(
       child: TomatoScheduleApp(),
@@ -34,4 +37,19 @@ class TomatoScheduleApp extends StatelessWidget {
       home: const CalendarScreen(),
     );
   }
+}
+
+// Global MCP server instance
+McpServer? _mcpServer;
+
+Future<void> startMcpServer() async {
+  if (_mcpServer != null) return;
+  final db = DatabaseService();
+  _mcpServer = McpServer(db);
+  await _mcpServer!.start(port: 8080);
+}
+
+Future<void> stopMcpServer() async {
+  await _mcpServer?.stop();
+  _mcpServer = null;
 }
