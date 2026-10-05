@@ -29,4 +29,11 @@ jobs:
         with:
           flutter-version: '3.24.0'
           channel: 'stable'
-      - run: dart format --set-exit-if-changed .
+      - name: Format code
+        run: |
+          dart format .
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add -A
+          git diff --staged --quiet || git commit -m "Auto-format code"
+          git push
