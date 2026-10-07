@@ -45,7 +45,13 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            artifacts/**/*
+            artifacts/android/*.apk
+            artifacts/android/*.aab
+            artifacts/android/*.txt
+            artifacts/ios/Runner.app/**
+            artifacts/windows/*.exe
+            artifacts/macos/*.app/**
+            artifacts/linux/tomato_schedule
           draft: false
           prerelease: false
           generate_release_notes: true
