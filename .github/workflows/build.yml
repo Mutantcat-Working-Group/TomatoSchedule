@@ -5,6 +5,9 @@ on:
     tags: ['v*']
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   release:
     name: Create Release
@@ -42,11 +45,7 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            artifacts/android/*
-            artifacts/ios/*
-            artifacts/windows/*
-            artifacts/macos/*
-            artifacts/linux/*
+            artifacts/**/*
           draft: false
           prerelease: false
           generate_release_notes: true
