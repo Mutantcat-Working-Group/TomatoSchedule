@@ -98,17 +98,13 @@ jobs:
 
   build-windows:
     name: Build Windows
-    runs-on: windows-latest
+    runs-on: windows-2022
     steps:
       - uses: actions/checkout@v4
       - uses: subosito/flutter-action@v2
         with:
           flutter-version: '3.24.0'
           channel: 'stable'
-      - name: Install Visual Studio C++ tools
-        uses: microsoft/setup-msbuild@v2
-        with:
-          msbuild-architecture: x64
       - run: flutter pub get
       - run: flutter build windows --release
       - uses: actions/upload-artifact@v4
